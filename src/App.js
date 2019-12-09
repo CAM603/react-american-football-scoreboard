@@ -13,6 +13,7 @@ function App() {
   const [lionsScore, lionsSetScore] = useState(0);
   const [tigersScore, tigersSetScore] = useState(0);
   const [quarter, setQuarter] = useState(0);
+  const [down, setDown] = useState(1);
 
   const lionTd = () => {
     lionsSetScore(lionsScore + 7);
@@ -32,6 +33,10 @@ function App() {
     quarter < 4 ? setQuarter(quarter + 1)
     : setQuarter(0)
   }
+  const changeDown = () => {
+    down < 4 ? setDown(down + 1)
+    : setDown(1)
+  }
 
   return (
     <div className="container">
@@ -43,7 +48,12 @@ function App() {
           <AwayButtons td={tigerTd} fg={tigerFg} />
           <Away score={tigersScore} />
         </div>
-        <BottomRow quarter={quarter} quarterChange={quarterChange}/>
+        <BottomRow 
+        quarter={quarter} 
+        quarterChange={quarterChange}
+        down={down}
+        changeDown={changeDown}
+        />
       </section>
     </div>
   );
