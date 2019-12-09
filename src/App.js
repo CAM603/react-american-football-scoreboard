@@ -2,12 +2,16 @@
 import React, { useState } from "react";
 import "./App.css";
 import BottomRow from "./BottomRow";
+import Home from "./home";
+import Away from "./away";
+import HomeButtons from "./homeButtons";
+import AwayButtons from "./awayButtons";
+import Timer from "./timer";
 
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [lionsScore, lionsSetScore] = useState(0);
   const [tigersScore, tigersSetScore] = useState(0);
-
   const lionTd = () => {
     lionsSetScore(lionsScore + 7);
   }
@@ -26,31 +30,15 @@ function App() {
     <div className="container">
       <section className="scoreboard">
         <div className="topRow">
-          <div className="home">
-            <h2 className="home__name">Lions</h2>
-
-            {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
-
-            <div className="home__score">{lionsScore}</div>
-          </div>
-          <div className="timer">00:03</div>
-          <div className="away">
-            <h2 className="away__name">Tigers</h2>
-            <div className="away__score">{tigersScore}</div>
-          </div>
+          <Home score={lionsScore} />
+          <Timer />
+          <Away score={tigersScore} />
         </div>
         <BottomRow />
       </section>
       <section className="buttons">
-        <div className="homeButtons">
-          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick={lionTd} className="homeButtons__touchdown">Home Touchdown</button>
-          <button onClick={lionFg} className="homeButtons__fieldGoal">Home Field Goal</button>
-        </div>
-        <div className="awayButtons">
-          <button onClick={tigerTd} className="awayButtons__touchdown">Away Touchdown</button>
-          <button onClick={tigerFg} className="awayButtons__fieldGoal">Away Field Goal</button>
-        </div>
+        <HomeButtons td={lionTd} fg={lionFg} />
+        <AwayButtons td={tigerTd} fg={tigerFg} />
       </section>
     </div>
   );
