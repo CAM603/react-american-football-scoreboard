@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import HomeButtons from "./homeButtons";
 
 const Home = (props) => {
     
