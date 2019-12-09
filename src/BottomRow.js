@@ -4,7 +4,7 @@ import QuarterButton from "./quarterButton";
 import Down from "./downButton";
 
 const BottomRow = (props) => {
-  console.log(props)
+  
   return (
     <div className="bottomRow">
       <div className="down">

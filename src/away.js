@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
 const Away = (props) => {
-    console.log(props)
+    
     return (
         <div className="away">
             <h2 className="away__name">Tigers</h2>

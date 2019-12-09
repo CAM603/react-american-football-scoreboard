@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
-const Timer = () => {
+const Timer = (props) => {
+    console.log(props)
     return (
-        <div className="timer">00:03</div>
+        <div className="timer">{props.time}</div>
     )
 }
 
