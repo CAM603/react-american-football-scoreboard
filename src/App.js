@@ -29,7 +29,8 @@ function App() {
   }
 
   const quarterChange = () => {
-    setQuarter(quarter + 1)
+    quarter < 4 ? setQuarter(quarter + 1)
+    : setQuarter(0)
   }
 
   return (
@@ -42,7 +43,7 @@ function App() {
           <AwayButtons td={tigerTd} fg={tigerFg} />
           <Away score={tigersScore} />
         </div>
-        <BottomRow quarter={quarter} />
+        <BottomRow quarter={quarter} quarterChange={quarterChange}/>
       </section>
     </div>
   );

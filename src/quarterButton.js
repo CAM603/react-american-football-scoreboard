@@ -2,10 +2,10 @@ import React from "react";
 import "./App.css";
 
 const QuarterButton = (props) => {
-    console.log(props)
+    
     return (
         <div>
-            <button>Change Quarter</button>
+            <button onClick={() => props.quarterChange()} >Change Quarter</button>
         </div>
     )
 }
