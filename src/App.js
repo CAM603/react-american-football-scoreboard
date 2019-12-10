@@ -14,17 +14,31 @@ function App() {
   const [tigersScore, tigersSetScore] = useState(0);
   const [quarter, setQuarter] = useState(0);
   const [down, setDown] = useState(1);
-  const [time, setTime] = useState(10);
+  const [timer, setTimer] = useState({minutes: 1, seconds: 0})
   
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(time - 1)
-      //console.log('This will run after 1 second!')
+    const time = setInterval(() => {
+      if (timer.seconds > 0) {
+        
+        setTimer(({seconds}) => ({
+          seconds : seconds - 1,
+          minutes :  timer.minutes
+        }))
+      }
+      if (timer.seconds === 0) {
+        if (timer.minutes === 0) {
+          clearInterval(time)
+        } else {
+          setTimer(({minutes}) => ({
+            minutes: minutes - 1,
+            seconds: 59
+          }))
+          
+        }
+      }
     }, 1000);
-    if (time === 0) {
-      setTime(10);
-    }
-    return () => clearInterval(timer);
+    
+    return () => clearInterval(time);
   });
 
   const lionTd = () => {
@@ -56,7 +70,7 @@ function App() {
         <div className="topRow">
           <Home score={lionsScore} />
           <HomeButtons td={lionTd} fg={lionFg} />
-          <Timer time={time}/>
+          <Timer timer={timer} />
           <AwayButtons td={tigerTd} fg={tigerFg} />
           <Away score={tigersScore} />
         </div>

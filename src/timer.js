@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
 
-const Timer = (props) => {
-    console.log(props)
+const Timer = ({timer}) => {
+    
     return (
-        <div className="timer">{props.time}</div>
+    <div className="timer">{ timer.minutes }:{ timer.seconds < 10 ? `0${timer.seconds}` : timer.seconds} </div>
     )
 }
 
