@@ -14,7 +14,7 @@ function App() {
   const [tigersScore, tigersSetScore] = useState(0);
   const [quarter, setQuarter] = useState(0);
   const [down, setDown] = useState(1);
-  const [timer, setTimer] = useState({minutes: 1, seconds: 0})
+  const [timer, setTimer] = useState({minutes: 10, seconds: 0})
   
   useEffect(() => {
     const time = setInterval(() => {
@@ -42,14 +42,14 @@ function App() {
   });
 
   const lionTd = () => {
-    lionsSetScore(lionsScore + 7);
+    lionsSetScore(lionsScore + 6);
   }
   const lionFg =() => {
     lionsSetScore(lionsScore + 3);
   }
 
   const tigerTd = () => {
-    tigersSetScore(tigersScore + 7);
+    tigersSetScore(tigersScore + 6);
   }
   const tigerFg = () => {
     tigersSetScore(tigersScore + 3);
