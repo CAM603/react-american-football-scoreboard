@@ -20,7 +20,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6rem;
   background-image: url("https://images.unsplash.com/photo-1566577739112-5180d4bf9390?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1852&q=80");
-  background-size: cover;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 code {
